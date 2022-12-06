@@ -1,8 +1,9 @@
 import React from 'react';
+import DetailCard from '../components/detailcard/DetailCard';
 
 function Detail() {
     return (
-        <div>Detail</div>
+        <div><DetailCard /></div>
     );
 }
 
