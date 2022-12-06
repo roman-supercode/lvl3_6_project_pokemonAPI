@@ -1,6 +1,5 @@
 import './HomeCard.css';
 
-
 function HomeCard(props) {
     return (
         <section className='homecard'>
