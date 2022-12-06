@@ -1,5 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
 import HomeCard from '../components/homecard/HomeCard';
+
 
 const Home = () => {
     console.log("Render");
@@ -47,11 +49,13 @@ const Home = () => {
 
     return (
         <div>
+
             <HomeCard
                 imgURL={selectedPokemon?.sprites.front_default}
                 id={selectedPokemon?.id}
                 name={selectedPokemon?.name}
             />
+
         </div>
     );
 };
