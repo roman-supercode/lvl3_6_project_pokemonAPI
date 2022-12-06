@@ -3,7 +3,7 @@ import DetailCard from '../components/detailcard/DetailCard';
 
 function Detail() {
     return (
-        <div><DetailCard /></div>
+        <div className='detailPageDiv'><DetailCard /></div>
     );
 }
 

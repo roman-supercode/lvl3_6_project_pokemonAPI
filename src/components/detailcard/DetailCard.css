@@ -1,0 +1,12 @@
+.characterBackgroundDiv {
+    width: 330px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    background-image: linear-gradient(to top right, #FFE1C6, #FFCB05);
+}
+
+.characterBackgroundDiv img {
+    height: 180px;
+}

@@ -9,7 +9,7 @@ const DetailCard = () => {
     const [character, setCharacter] = useState([]);
 
     useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}/`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
             .then(res => res.json())
             .then((character) => {
                 setCharacter(character);
@@ -20,8 +20,10 @@ const DetailCard = () => {
 
     console.log(character)
     return (<div className="detailCardDiv">
+        <div className="characterBackgroundDiv">
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${character.id}.svg`} alt={character.name} />
+        </div>
         <p>{character.name}</p>
-        <img src={character.sprites.front_default} alt={character.name} />
         {character.types.map((singleType, index) => {
             return <p key={index}>{singleType.type.name}</p>
         })
