@@ -20,6 +20,7 @@ const DetailCard = () => {
 
     console.log(character)
     return (<div className="detailCardDiv">
+        <p>{character.id}</p>
         <p>{character.name}</p>
         <img src={character.sprites.front_default} alt={character.name} />
         {character.types.map((singleType, index) => {
