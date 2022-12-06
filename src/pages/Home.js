@@ -1,8 +1,11 @@
 import React from 'react';
+import Heading from '../components/heading/Heading';
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <div>
+            <Heading />
+        </div>
     );
 };
 
