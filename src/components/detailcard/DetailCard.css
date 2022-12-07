@@ -34,20 +34,23 @@
     -webkit-text-stroke: 2px #2c72b8;
 }
 
-.attacksAndMovementsDiv {
+.attacksAndMovementsDiv,
+.abilitiesDiv {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 20px;
 }
 
-.attacksAndMovementsP {
+.attacksAndMovementsP,
+.abilitiesP {
     font-size: 18px;
     font-weight: bold;
     color: #2c72b8;
     margin-top: 40px;
 }
 
-.moveP {
+.moveP,
+.abilityP {
     font-size: 10px;
     color: #2c72b8;
 }
