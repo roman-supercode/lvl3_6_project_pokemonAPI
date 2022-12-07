@@ -14,9 +14,13 @@
     min-height: 100vh;
 }
 
+/* =================== Home ======================= */
 .home {
     text-align: center;
     padding: 2rem;
+    background-color: #CCDADD;
+    font-family: Roboto;
+    font-size: 14px;
 }
 
 .homecards {
@@ -29,6 +33,11 @@
     margin-top: 3rem;
 }
 
+.homeLink {
+    text-decoration: none;
+    color: black;
+}
+
 .homecard article {
     display: flex;
     justify-content: center;
@@ -39,3 +48,19 @@
     text-decoration: none;
     color: black;
 }
+
+@media (max-width: 700px) {
+    .homecards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+    }
+
+    .homecard img {
+        width: 70%;
+    }
+}
+
+
+
+/* =================== Home ======================= */

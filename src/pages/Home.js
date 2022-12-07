@@ -17,13 +17,13 @@ const Home = () => {
 
     if (allPokemon === undefined) return;
 
+
+
+
+
+
     return (
         <div className='home'>
-            {/* <HomeCard
-                imgURL={selectedPokemon?.sprites.front_default}
-                id={selectedPokemon?.id}
-                name={selectedPokemon?.name}
-            /> */}
 
             <Searchbar />
             <div className='homecards'>
