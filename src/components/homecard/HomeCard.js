@@ -3,22 +3,37 @@ import { Link } from 'react-router-dom';
 import './HomeCard.css';
 
 
+
+
+
+
+
 function HomeCard(props) {
-    // console.log(props.url);
-        // useEffect(() => {
-        //     fetch(props.url)
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             console.log(data.sprites.front_default);
-        //         });
-        // });
+
+    // Die Nullen an die ID packen
+    const FormatId = () => {
+        if (props.id < 10) {
+            return <p>#00{props.id}</p>
+        } else if (props.id < 100) {
+            return <p>#0{props.id}</p>
+        } else {
+            return <p>#{props.id}</p>
+        }
+    }
+
+    //Den ersten Buchstaben der Namen groß schreiben
+    let theName = props.name;
+    let theNameUpperCase = theName.charAt(0).toUpperCase() + theName.slice(1);
+
+
+
     return (
         <section className='homecard'>
-            <Link to={`/detail/${props.name}`}>
+            <Link className='homeLink' to={`/detail/${props.name}`}>
                 <img src={`${props.imgURL}`} />
                 <article>
-                    <p className='pokeID'>{props.id}</p>
-                    <p className='pokeName'>{props.name}</p>
+                    <FormatId />
+                    <p className='pokeName'>{theNameUpperCase}</p>
                 </article>
             </Link>
         </section >

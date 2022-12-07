@@ -13,3 +13,74 @@
     background-color: #CCDADD;
     min-height: 100vh;
 }
+
+/* =================== Home ======================= */
+.home {
+    text-align: center;
+    padding: 2rem;
+    background-color: #CCDADD;
+    font-family: Roboto;
+    font-size: 14px;
+}
+
+.homecards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1rem;
+}
+
+.homecard {
+    margin: 2rem;
+
+
+
+    overflow: visible;
+    background-image: linear-gradient(to top right, #FFE1C6, #FFCB05);
+    border-radius: 20px;
+
+}
+
+.homecard img {
+    width: 50%;
+}
+
+.homeLink {
+    text-decoration: none;
+    color: black;
+}
+
+.homecard article {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 0.5rem; */
+    background-color: #fafafa;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0 0 10px 10px;
+
+}
+
+
+
+
+
+@media (max-width: 700px) {
+    .homecards {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .homecard img {
+        width: 60%;
+    }
+
+    .homecard {
+        margin: 1rem;
+
+
+
+    }
+}
+
+
+
+/* =================== Home ======================= */
