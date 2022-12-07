@@ -2,59 +2,58 @@
 import React, { useEffect, useState } from 'react';
 import HomeCard from '../components/homecard/HomeCard';
 
-
 const Home = () => {
-    console.log("Render");
     const [allPokemon, setAllPokemon] = useState();
+    // const [allPokemonArray, setAllPokemonArray] = useState();
     const [selectedPokemon, setSelectedPokemon] = useState();
     const [exampleURL, setExampleURL] = useState();
 
-
-
-    // const [allPokemonArray, setAllPokemonArray] = useState();
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/?offset=100&limit=1154")
+        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1154")
             .then(response => response.json())
             .then(allPokemonAPI => {
                 setAllPokemon(allPokemonAPI);
                 // setAllPokemonArray(Object.entries(allPokemon));
                 setExampleURL(allPokemonAPI?.results[0]?.url);
-
+                // setAllPokemonArray(Object.entries(allPokemonAPI));
             });
     }, []);
 
-    // if (allPokemon === undefined) return;
-
-    //Die URL holen indem alle Infos vom Beispiel Pokemon sind
-    //results[0] ist "electrode"
-
-
-
-
     //Die Infos aus der URL von diesem Pokemon holen
-
+    console.log("außerhalb von useEff", selectedPokemon);
     useEffect(() => {
         if (exampleURL === undefined) return;
-        console.log("TesTs");
+        console.log("Innerhalb useEffect");
         fetch(`${exampleURL}`)
             .then(response => response.json())
             .then(selectedPokemonAPI => {
                 setSelectedPokemon(selectedPokemonAPI);
-
+                console.log("Test:", selectedPokemon);
             });
     }, [exampleURL]);
-    console.log(selectedPokemon);
+    // ===================================================================
+
+    if (allPokemon === undefined) return;
 
 
 
     return (
         <div>
-
             <HomeCard
                 imgURL={selectedPokemon?.sprites.front_default}
                 id={selectedPokemon?.id}
                 name={selectedPokemon?.name}
+
             />
+            {allPokemon.results.map((object, index) => {
+                return (
+                    <HomeCard
+                        name={object.name}
+                        key={index}
+                        imgURL={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`}
+                        id={index + 1}
+                    />);
+            })}
 
         </div>
     );
