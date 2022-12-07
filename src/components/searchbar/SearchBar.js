@@ -5,13 +5,13 @@ import daynight from '../../assets/img/daynight.svg';
 import hamburger from '../../assets/img/hamburger.svg';
 
 export default function SearchBar() {
-    useRef();
+    const inputref = useRef();
     return (
         <div>
             <img src={headingPic}></img>
             <div>
                 <img src={hamburger}></img>
-                <input ></input>
+                <input ref={inputref}></input>
                 <img src={daynight}></img>
             </div>
         </div>
