@@ -5,7 +5,7 @@ import './HomeCard.css';
 function HomeCard(props) {
     return (
         <section className='homecard'>
-            <Link to={props.name}>
+            <Link to={`/detail/${props.name}`}>
                 <img src={`${props.imgURL}`} />
                 <article>
                     <p className='pokeID'>{props.id}</p>
