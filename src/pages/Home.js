@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import HomeCard from '../components/homecard/HomeCard';
+import Searchbar from "../components/searchbar/SearchBar"
 
 const Home = () => {
     const [allPokemon, setAllPokemon] = useState();
@@ -17,16 +18,28 @@ const Home = () => {
     if (allPokemon === undefined) return;
 
     return (
-        <div>
-            {allPokemon.results.map((object, index) => {
-                return (
-                    <HomeCard
-                        name={object.name}
-                        key={index}
-                        imgURL={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`}
-                        id={index + 1}
-                    />);
-            })}
+        <div className='home'>
+            {/* <HomeCard
+                imgURL={selectedPokemon?.sprites.front_default}
+                id={selectedPokemon?.id}
+                name={selectedPokemon?.name}
+            /> */}
+
+            <Searchbar />
+            <div className='homecards'>
+                {allPokemon.results.map((object, index) => {
+                    return (
+
+                        <HomeCard
+                            name={object.name}
+                            key={index}
+                            imgURL={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
+                            id={index + 1}
+                        />);
+                })}
+
+            </div>
+
         </div>
     );
 };

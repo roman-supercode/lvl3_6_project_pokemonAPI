@@ -13,3 +13,29 @@
     background-color: #CCDADD;
     min-height: 100vh;
 }
+
+.home {
+    text-align: center;
+    padding: 2rem;
+}
+
+.homecards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 1rem;
+}
+
+.homecard {
+    margin-top: 3rem;
+}
+
+.homecard article {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.homecardLink {
+    text-decoration: none;
+    color: black;
+}
