@@ -6,7 +6,7 @@ character hintergrund linear gradient #FFE1C6 to upper right #FFCB05
 
 text with stroke:
 color: #FFCB05
-stroke: #2C72B8, 4px
+-webkit-text-stroke: 2px #2C72B8 (px Wert ist nicht 100% sicher)
 
 ## fonts
 

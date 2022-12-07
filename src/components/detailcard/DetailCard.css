@@ -1,0 +1,53 @@
+.detailCardDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.characterBackgroundDiv {
+    margin-top: 120px;
+    width: 330px;
+    height: 120px;
+    overflow: visible;
+    background-image: linear-gradient(to top right, #FFE1C6, #FFCB05);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.characterBackgroundDiv img {
+    height: 180px;
+    margin-bottom: 10px;
+}
+
+.characterIdNameDiv {
+    display: flex;
+    gap: 2px;
+}
+
+.characterIdNameDiv p {
+    /* font-family */
+    font-weight: bold;
+    font-size: 36px;
+    color: #FFCB05;
+    -webkit-text-stroke: 2px #2c72b8;
+}
+
+.attacksAndMovementsDiv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+}
+
+.attacksAndMovementsP {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c72b8;
+    margin-top: 40px;
+}
+
+.moveP {
+    font-size: 10px;
+    color: #2c72b8;
+}
