@@ -19,7 +19,6 @@ const TypeList = () => {
             });
     }, [params]);
 
-    // useParams
     return (
         <div>
             {poke.map((item, index) => {
@@ -28,7 +27,9 @@ const TypeList = () => {
                     <HomeCard
                         name={item.pokemon.name}
                         key={index}
-                    // imgURL={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${}.svg`}
+                        url={item.pokemon.url}
+
+                    // imgURL={``}
                     />
                 );
             })}
