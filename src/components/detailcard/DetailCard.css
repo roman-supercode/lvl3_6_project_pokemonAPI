@@ -32,11 +32,16 @@
 }
 
 .characterIdNameDiv p {
-    font-family: "Roboto-Regular", sans-serif;
-    font-weight: bold;
+    font-family: "Roboto-Bold", sans-serif;
+    font-weight: 900;
+    letter-spacing: -2px;
     font-size: 36px;
     color: #FFCB05;
-    -webkit-text-stroke: 1px #2c72b8;
+    -webkit-text-stroke: 2px #2C72B8;
+}
+
+.detailCardNameP::first-letter {
+    text-transform: capitalize;
 }
 
 .attacksAndMovementsClickDiv,
@@ -56,7 +61,8 @@
 
 .attacksAndMovementsP,
 .abilitiesP,
-.statsP {
+.statsP,
+.expandP {
     font-size: 18px;
     font-weight: bold;
     color: #2c72b8;
