@@ -1,25 +1,18 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./DetailCard.css";
-// const [sortMove, setSortMove] = useState();
-// const [alpha, setAlpha] = useState(false);
-// let moves = [];
-//SORT moves alphabetically
-// const handleSortMove = () => {
-//     character.moves.map((move) => {
-//         moves.push(move);
-//     })
 
-//     console.log(moves[0].move.name)
 
-//     setAlpha(current => !current);
-//     alpha ? sortMove.sort((a, b) => a.move.name - b.move.name) : sortMove.sort((a, b) => b.move.name - a.move.name);
-//     setSortMove(sortMove)
-// }
 const DetailCard = () => {
     const params = useParams();
     const [character, setCharacter] = useState([]);
-    const [evolve, setEvolve] = useState();
+    const [evolve, setEvolve] = useState([]);
+    const [expand1, setExpand1] = useState(false);
+    const [expand2, setExpand2] = useState(false);
+    const [expand3, setExpand3] = useState(false);
+    // const [sortMove, setSortMove] = useState();
+    // const [alpha, setAlpha] = useState(false);
+    // let moves = [];
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
@@ -50,6 +43,19 @@ const DetailCard = () => {
         }
     }
 
+    // const handleSortMove = () => {
+    //     moves.map((move) => {
+    //         moves.push(move);
+    //         setSortMove(moves)
+    //     })
+
+    //     console.log(moves[0].move.name)
+
+    //     setAlpha(current => !current);
+    //     alpha ? sortMove.sort((a, b) => a.move.name.localeCompare(b.move.name)) : sortMove.sort((a, b) => b.move.name.localeCompare(a.move.name));
+    //     setSortMove(sortMove)
+    // }
+
     return (<div className="detailCardDiv">
         <div className="characterBackgroundDiv">
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${character.id}.png`} alt={character.name} />
@@ -62,27 +68,44 @@ const DetailCard = () => {
             return <p key={index}>{singleType.type.name}</p>
         })
         }
-        <p className="attacksAndMovementsP">ATTACKS AND MOVEMENTS</p>
-        {/* onClick={handleSortMove} */}
-        <button>Sort moves</button>
-        <div className="attacksAndMovementsDiv">
+        {/*  onClick={handleSortMove} */}
+        <div className="attacksAndMovementsClickDiv" onClick={() => setExpand1(!expand1)}>
+            <p className="attacksAndMovementsP">ATTACKS AND MOVEMENTS</p>
+            {/* <button>Sort moves</button> */}
+            <p>{expand1 ? "-" : "+"}</p>
+        </div>
+        {expand1 && <div className="attacksAndMovementsDiv">
             {character.moves.map((singleMove, index) => {
                 return <p className="moveP" key={index}>{singleMove.move.name}</p>
             })}
+        </div>}
+        <div className="abilitiesClickDiv" onClick={() => setExpand2(!expand2)}>
+            <p className="abilitiesP">ABILITIES</p>
+            <p>{expand2 ? "-" : "+"}</p>
         </div>
-        <p className="abilitiesP">ABILITIES</p>
-        <div className="abilitiesDiv">
+        {expand2 && <div className="abilitiesDiv">
             {character.abilities.map((singleAbility, index) => {
                 return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>
             })}
+        </div>}
+        <div className="statsClickDiv" onClick={() => setExpand3(!expand3)}>
+            <p className="statsP">STATS</p>
+            <p>{expand3 ? "-" : "+"}</p>
         </div>
-        <p className="statsP">STATS</p>
-        <div className="statsDiv">
-            {character.abilities.map((singleAbility, index) => {
-                return <p className="statsP" key={index}>{singleAbility.ability.name}</p>
-            })}
-        </div>
+        {expand3 && <div className="statsDiv">
+            <p className="statP">evolution path 1</p>
+        </div>}
     </div>);
 }
+
+// const [expanded, setExpanded] = useState(false);
+// return (
+//     <section className="FAQSection">
+//         <div className="FAQdisplayQuestion">
+//             <p className="boldP" onClick={() => setExpanded(!expanded)}>Why is React the greatest thing?</p>
+//             <button className="openCloseDropDownButton" onClick={() => setExpanded(!expanded)}>{expanded ? "-" : "+"}</button>
+//         </div>
+//         {expanded && <p className="regularP">Because it's so easy to learn without previous coding experience</p>}
+//     </section>
 
 export default DetailCard;
