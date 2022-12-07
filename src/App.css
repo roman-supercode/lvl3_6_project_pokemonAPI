@@ -30,7 +30,18 @@
 }
 
 .homecard {
-    margin-top: 3rem;
+    margin: 2rem;
+
+
+
+    overflow: visible;
+    background-image: linear-gradient(to top right, #FFE1C6, #FFCB05);
+    border-radius: 20px;
+
+}
+
+.homecard img {
+    width: 50%;
 }
 
 .homeLink {
@@ -40,24 +51,33 @@
 
 .homecard article {
     display: flex;
-    justify-content: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    /* gap: 0.5rem; */
+    background-color: #fafafa;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0 0 10px 10px;
+
 }
 
-.homecardLink {
-    text-decoration: none;
-    color: black;
-}
+
+
+
 
 @media (max-width: 700px) {
     .homecards {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        padding: 1rem;
+
     }
 
     .homecard img {
-        width: 70%;
+        width: 60%;
+    }
+
+    .homecard {
+        margin: 1rem;
+
+
+
     }
 }
 

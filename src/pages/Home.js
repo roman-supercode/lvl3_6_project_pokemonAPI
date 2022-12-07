@@ -18,7 +18,13 @@ const Home = () => {
     if (allPokemon === undefined) return;
 
 
+    // ================= Bilder Version ==============
 
+    // let version1 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`;
+    // let version2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`;
+    // let version2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png`;
+
+    // ==============================================
 
 
 
@@ -33,7 +39,7 @@ const Home = () => {
                         <HomeCard
                             name={object.name}
                             key={index}
-                            imgURL={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
+                            imgURL={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${index + 1}.png`}
                             id={index + 1}
                         />);
                 })}
