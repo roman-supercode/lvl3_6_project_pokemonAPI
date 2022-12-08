@@ -9,7 +9,7 @@ const Home = () => {
     const [useAbleData, setuseAbleData] = useState();
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150")
+        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=905")
             .then(response => response.json())
             .then(allPokemonAPI => {
                 setAllPokemon(allPokemonAPI);

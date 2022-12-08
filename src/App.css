@@ -9,6 +9,11 @@
     src: url("./assets/fonts/Roboto-Regular.ttf");
 }
 
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("./assets/fonts/Roboto-Bold.ttf");
+}
+
 .detailPageDiv {
     background-color: #CCDADD;
     min-height: 100vh;
@@ -30,10 +35,7 @@
 }
 
 .homecard {
-    margin: 2rem;
-
-
-
+    margin: 1rem;
     overflow: visible;
     background-image: linear-gradient(to top right, #FFE1C6, #FFCB05);
     border-radius: 20px;

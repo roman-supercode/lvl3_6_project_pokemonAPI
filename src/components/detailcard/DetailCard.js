@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import TypeCard from "../typecard/TypeCard";
 import "./DetailCard.css";
 
 
@@ -55,6 +56,7 @@ const DetailCard = () => {
     //     alpha ? sortMove.sort((a, b) => a.move.name.localeCompare(b.move.name)) : sortMove.sort((a, b) => b.move.name.localeCompare(a.move.name));
     //     setSortMove(sortMove)
     // }
+    console.log(evolve)
 
     return (<div className="detailCardDiv">
         <div className="characterBackgroundDiv">
@@ -62,17 +64,21 @@ const DetailCard = () => {
         </div>
         <div className="characterIdNameDiv">
             <FormatId />
-            <p>{character.name}</p>
+            <p className="detailCardNameP">{character.name}</p>
         </div>
         {character.types.map((singleType, index) => {
-            return <p key={index}>{singleType.type.name}</p>
+            return (<div>
+                <p key={index}>{singleType.type.name}</p>
+                <TypeCard />
+            </div>)
+
         })
         }
         {/*  onClick={handleSortMove} */}
         <div className="attacksAndMovementsClickDiv" onClick={() => setExpand1(!expand1)}>
             <p className="attacksAndMovementsP">ATTACKS AND MOVEMENTS</p>
             {/* <button>Sort moves</button> */}
-            <p>{expand1 ? "-" : "+"}</p>
+            <p className="expandP">{expand1 ? "-" : "+"}</p>
         </div>
         {expand1 && <div className="attacksAndMovementsDiv">
             {character.moves.map((singleMove, index) => {
@@ -81,7 +87,7 @@ const DetailCard = () => {
         </div>}
         <div className="abilitiesClickDiv" onClick={() => setExpand2(!expand2)}>
             <p className="abilitiesP">ABILITIES</p>
-            <p>{expand2 ? "-" : "+"}</p>
+            <p className="expandP">{expand2 ? "-" : "+"}</p>
         </div>
         {expand2 && <div className="abilitiesDiv">
             {character.abilities.map((singleAbility, index) => {
@@ -90,11 +96,12 @@ const DetailCard = () => {
         </div>}
         <div className="statsClickDiv" onClick={() => setExpand3(!expand3)}>
             <p className="statsP">STATS</p>
-            <p>{expand3 ? "-" : "+"}</p>
+            <p className="expandP">{expand3 ? "-" : "+"}</p>
         </div>
         {expand3 && <div className="statsDiv">
-            <p className="statP">evolution path 1</p>
+            <p className="statP">evolution path 1: {evolve.chain.species.name}</p>
         </div>}
+        <Link to={"/"}>Temporary Link to Home</Link>
     </div>);
 }
 
