@@ -30,7 +30,7 @@ const TypeList = () => {
     if (pokeName === undefined) return;
 
     return (
-        <div>
+        <div className='homecards'>
             {pokeName.map((item, index) => {
                 return (
                     <HomeCard
