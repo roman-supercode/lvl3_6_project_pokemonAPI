@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import TypeCard from "../typecard/TypeCard";
 import "./DetailCard.css";
 
@@ -8,53 +9,53 @@ const colorsDetailCard = {
         {type: "normal",
         color: '#A8A77A'},
     2: 
-        {type: "fire",
-        color: '#EE8130'},
-    3: 
-        {type: "water",
-        color: '#6390F0'},
-    4: 
-        {type: "electric",
-        color: '#F7D02C'},
-    5: 
-        {type: "grass",
-        color: '#7AC74C'},
-    6: 
-        {type: "ice",
-        color: '#96D9D6'},
-    7: 
         {type: "fighting",
         color: '#C22E28'},
-    8: 
-        {type: "poison",
-        color: '#A33EA1'},
-    9: 
-        {type: "ground",
-        color: '#E2BF65'},
-    10: 
+    3: 
         {type: "flying",
         color: '#A98FF3'},
-    11: 
-        {type: "psychic",
-        color: '#F95587'},
-    12: 
-        {type: "bug",
-        color: '#A6B91A'},
-    13:    
+    4: 
+        {type: "poison",
+        color: '#A33EA1'},
+    5: 
+        {type: "ground",
+        color: '#E2BF65'},
+    6:    
         {type: "rock",
         color: '#B6A136'},
-    14: 
+    7: 
+        {type: "bug",
+        color: '#A6B91A'},
+    8: 
         {type: "ghost",
         color: '#735797'},
-    15: 
-        {type: "dragon",
-        color: '#6F35FC'},
-    16: 
-        {type: "dark",
-        color: '#705746'},
-    17: 
+    9: 
         {type: "steel",
         color: '#B7B7CE'},
+    10: 
+        {type: "fire",
+        color: '#EE8130'},
+    11: 
+        {type: "water",
+        color: '#6390F0'},
+    12: 
+        {type: "grass",
+        color: '#7AC74C'},
+    13: 
+        {type: "electric",
+        color: '#F7D02C'},
+    14: 
+        {type: "psychic",
+        color: '#F95587'},
+    15: 
+        {type: "ice",
+        color: '#96D9D6'},
+    16: 
+        {type: "dragon",
+        color: '#6F35FC'}, 
+    17: 
+        {type: "dark",
+        color: '#705746'},
     18: 
         {type: "fairy",
         color: '#D685AD'}
@@ -76,6 +77,7 @@ const DetailCard = (props) => {
                 setCharacter(character);
             })
     }, [params.name])
+            
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/evolution-chain/${character.id}`)
@@ -84,12 +86,14 @@ const DetailCard = (props) => {
                 setEvolve(evolve)
             })
     }, [character.id])
+    
 
     if (character.name === undefined) return;
     if (character.id === undefined) return;
 
     const FormatId = () => {
         if (character.id < 10) {
+            return <p>#00{character.id}</p>
             return <p>#00{character.id}</p>
         } else if (character.id < 100) {
             return <p>#0{character.id}</p>
@@ -108,6 +112,7 @@ const DetailCard = (props) => {
             <p className="detailCardNameP">{character.name}</p>
         </div>
         <div  className="detailCardTypeCardDiv">
+        <div  className="detailCardTypeCardDiv">
         {character.types.map((singleType, index) => {
             for (const [key, value] of Object.entries(colorsDetailCard)) {
                 if (value.type === singleType.type.name) {
@@ -122,9 +127,9 @@ const DetailCard = (props) => {
                     );
                 }
             }
-        return singleType})
-        
+        })
         }
+        </div>
         </div>
         <div className="attacksAndMovementsClickDiv" onClick={() => setExpand1(!expand1)}>
             <p className="attacksAndMovementsP">ATTACKS AND MOVEMENTS</p>
@@ -132,6 +137,7 @@ const DetailCard = (props) => {
         </div>
         {expand1 && <div className="attacksAndMovementsDiv">
             {character.moves.map((singleMove, index) => {
+                return <p className="moveP" key={index}>{singleMove.move.name}</p>
                 return <p className="moveP" key={index}>{singleMove.move.name}</p>
             })}
         </div>}
@@ -142,9 +148,11 @@ const DetailCard = (props) => {
         {expand2 && <div className="abilitiesDiv">
             {character.abilities.map((singleAbility, index) => {
                 return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>
+                return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>
             })}
         </div>}
         <div className="statsClickDiv" onClick={() => setExpand3(!expand3)}>
+            <p className="statsP">STATS & BASE STAT</p>
             <p className="statsP">STATS & BASE STAT</p>
             <p className="expandP">{expand3 ? "-" : "+"}</p>
         </div>
@@ -165,13 +173,34 @@ const DetailCard = (props) => {
         </div>
         {expand4 && <div className="evolveDiv">
             <p className="evolveP">{evolve.chain.species.name}</p>
-            <p className="evolveP">{evolve.chain.evolves_to[0]?.species.name}</p>
             <p className="evolveP">{evolve.chain.evolves_to[0]?.evolves_to[0]?.species.name}</p>
+            <p className="evolveP">{evolve.chain.evolves_to[0]?.species.name}</p>
         </div>}
     </div>);
 }
 
 export default DetailCard;
+// ======================================================================
+// EMILY'S NOTES FOR FUTURE SORT BUTTON, PLEASE LEAVE ME HERE :)
+// const handleSortMove = () => {
+//     moves.map((move) => {
+//         moves.push(move);
+//         setSortMove(moves)
+//     })
+
+//     console.log(moves[0].move.name)
+
+//     setAlpha(current => !current);
+//     alpha ? sortMove.sort((a, b) => a.move.name.localeCompare(b.move.name)) : sortMove.sort((a, b) => b.move.name.localeCompare(a.move.name));
+//     setSortMove(sortMove)
+// }
+
+// const [sortMove, setSortMove] = useState();
+// const [alpha, setAlpha] = useState(false);
+// let moves = [];
+
+/* <button>Sort moves</button> */ 
+    // ======================================================================
 // ======================================================================
 // EMILY'S NOTES FOR FUTURE SORT BUTTON, PLEASE LEAVE ME HERE :)
 // const handleSortMove = () => {
