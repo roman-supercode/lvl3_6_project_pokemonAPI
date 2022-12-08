@@ -19,9 +19,9 @@ export default function SearchBar({ search }) {
 
     return (
         <div className='searchBarContainer'>
-            <img className='logoImg' src={headingPic} alt={"logo"}></img>
+            <Link to={"/"}><img className='logoImg' src={headingPic}></img></Link>
             <div className='flexContainer'>
-                <img src={hamburger} alt={"menu"}></img>
+                <Link to={"/menu"}><img src={hamburger}></img></Link>
                 <input placeholder='Pokemon name' onChange={(e) => search(e.target.value)}></input>
                 <img onClick={dayNight} src={daynight}></img>
             </div>
