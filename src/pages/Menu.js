@@ -1,6 +1,7 @@
 import React from 'react';
 import TypeCard from '../components/typecard/TypeCard';
 import { useState, useEffect } from 'react';
+import Heading from "../assets/img/heading.svg";
 
 const colours = {
     normal: '#A8A77A',
@@ -34,10 +35,13 @@ const Menu = () => {
                 setTypes(typesObj.results.filter(item => item.name !== "unknown" && item.name !== "shadow"));
             });
     }, []);
-    console.log(types);
+    // console.log(types);
 
     return (
         <div className='typeContainer'>
+            <div>
+                <img src={Heading} alt={"heading"}></img>
+            </div>
             <h2>TYPE</h2>
             <div className='typeGrid'>
                 {types.map((type, index) => {
@@ -66,8 +70,6 @@ const Menu = () => {
                 })
                 }
             </div>
-            {/* <button className='searchBtn'>SEARCH</button> */}
-
         </div>
     );
 };
