@@ -6,7 +6,7 @@ const Home = (props) => {
     const [allPokemon, setAllPokemon] = useState();
     const [useAbleData, setuseAbleData] = useState();
 
-
+    console.log(props);
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=905")
             .then(response => response.json())
@@ -28,7 +28,7 @@ const Home = (props) => {
         let length = (props.searchTerm).length;
 
         setuseAbleData(allPokemon.results.filter(el => el.name.slice(0, length).toLowerCase() === (props.searchTerm).toLowerCase().replaceAll(" ", "-")));
-
+        // eslint-disable-next-line
     }, [props.searchTerm]);
 
     if (allPokemon === undefined) return;

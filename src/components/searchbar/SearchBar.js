@@ -1,5 +1,5 @@
 import './SearchBar.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import headingPic from '../../assets/img/heading.svg';
 import daynight from '../../assets/img/daynight.svg';

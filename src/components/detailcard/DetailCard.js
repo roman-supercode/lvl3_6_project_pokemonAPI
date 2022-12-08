@@ -122,7 +122,8 @@ const DetailCard = (props) => {
                     );
                 }
             }
-        })
+        return singleType})
+        
         }
         </div>
         <div className="attacksAndMovementsClickDiv" onClick={() => setExpand1(!expand1)}>

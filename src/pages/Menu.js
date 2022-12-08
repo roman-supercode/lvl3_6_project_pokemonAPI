@@ -1,7 +1,7 @@
 import React from 'react';
 import TypeCard from '../components/typecard/TypeCard';
 import { useState, useEffect } from 'react';
-import Heading from "../assets/img/heading.svg";
+
 
 const colours = {
     normal: '#A8A77A',

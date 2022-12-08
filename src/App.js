@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Detail from './pages/Detail';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
@@ -11,7 +11,7 @@ import SearchBar from './components/searchbar/SearchBar';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState();
-  const [darkmode, setDarkMode] = useState(false);
+
 
   function searchFunction(search) {
     setSearchTerm(search);
