@@ -19,6 +19,10 @@
     min-height: 100vh;
 }
 
+body {
+    background-color: #CCDADD;
+}
+
 /* =================== Home ======================= */
 .home {
     text-align: center;
