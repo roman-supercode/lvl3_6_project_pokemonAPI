@@ -94,7 +94,6 @@ const DetailCard = (props) => {
     const FormatId = () => {
         if (character.id < 10) {
             return <p>#00{character.id}</p>
-            return <p>#00{character.id}</p>
         } else if (character.id < 100) {
             return <p>#0{character.id}</p>
         } else {
@@ -138,7 +137,6 @@ const DetailCard = (props) => {
         {expand1 && <div className="attacksAndMovementsDiv">
             {character.moves.map((singleMove, index) => {
                 return <p className="moveP" key={index}>{singleMove.move.name}</p>
-                return <p className="moveP" key={index}>{singleMove.move.name}</p>
             })}
         </div>}
         <div className="abilitiesClickDiv" onClick={() => setExpand2(!expand2)}>
@@ -147,7 +145,6 @@ const DetailCard = (props) => {
         </div>
         {expand2 && <div className="abilitiesDiv">
             {character.abilities.map((singleAbility, index) => {
-                return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>
                 return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>
             })}
         </div>}
