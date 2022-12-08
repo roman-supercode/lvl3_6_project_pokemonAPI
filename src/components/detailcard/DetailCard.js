@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import TypeCard from "../typecard/TypeCard";
 import "./DetailCard.css";
 
@@ -61,7 +60,7 @@ const colorsDetailCard = {
         color: '#D685AD'}
 };
 
-const DetailCard = (props) => {
+const DetailCard = () => {
     const params = useParams();
     const [character, setCharacter] = useState([]);
     const [evolve, setEvolve] = useState([]);
@@ -111,7 +110,6 @@ const DetailCard = (props) => {
             <p className="detailCardNameP">{character.name}</p>
         </div>
         <div  className="detailCardTypeCardDiv">
-        <div  className="detailCardTypeCardDiv">
         {character.types.map((singleType, index) => {
             for (const [key, value] of Object.entries(colorsDetailCard)) {
                 if (value.type === singleType.type.name) {
@@ -128,7 +126,6 @@ const DetailCard = (props) => {
             }
         })
         }
-        </div>
         </div>
         <div className="attacksAndMovementsClickDiv" onClick={() => setExpand1(!expand1)}>
             <p className="attacksAndMovementsP">ATTACKS AND MOVEMENTS</p>
@@ -150,7 +147,6 @@ const DetailCard = (props) => {
         </div>}
         <div className="statsClickDiv" onClick={() => setExpand3(!expand3)}>
             <p className="statsP">STATS & BASE STAT</p>
-            <p className="statsP">STATS & BASE STAT</p>
             <p className="expandP">{expand3 ? "-" : "+"}</p>
         </div>
         {expand3 && <div className="statsDiv">
@@ -170,34 +166,13 @@ const DetailCard = (props) => {
         </div>
         {expand4 && <div className="evolveDiv">
             <p className="evolveP">{evolve.chain.species.name}</p>
-            <p className="evolveP">{evolve.chain.evolves_to[0]?.evolves_to[0]?.species.name}</p>
             <p className="evolveP">{evolve.chain.evolves_to[0]?.species.name}</p>
+            <p className="evolveP">{evolve.chain.evolves_to[0]?.evolves_to[0]?.species.name}</p>
         </div>}
     </div>);
 }
 
 export default DetailCard;
-// ======================================================================
-// EMILY'S NOTES FOR FUTURE SORT BUTTON, PLEASE LEAVE ME HERE :)
-// const handleSortMove = () => {
-//     moves.map((move) => {
-//         moves.push(move);
-//         setSortMove(moves)
-//     })
-
-//     console.log(moves[0].move.name)
-
-//     setAlpha(current => !current);
-//     alpha ? sortMove.sort((a, b) => a.move.name.localeCompare(b.move.name)) : sortMove.sort((a, b) => b.move.name.localeCompare(a.move.name));
-//     setSortMove(sortMove)
-// }
-
-// const [sortMove, setSortMove] = useState();
-// const [alpha, setAlpha] = useState(false);
-// let moves = [];
-
-/* <button>Sort moves</button> */ 
-    // ======================================================================
 // ======================================================================
 // EMILY'S NOTES FOR FUTURE SORT BUTTON, PLEASE LEAVE ME HERE :)
 // const handleSortMove = () => {
