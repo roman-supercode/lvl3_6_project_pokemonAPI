@@ -1,13 +1,12 @@
-
 import React, { useEffect, useState } from 'react';
 import HomeCard from '../components/homecard/HomeCard';
-import Searchbar from "../components/searchbar/SearchBar";
 
-const Home = () => {
+
+const Home = (props) => {
     const [allPokemon, setAllPokemon] = useState();
-    const [searchTerm, setSearchTerm] = useState();
     const [useAbleData, setuseAbleData] = useState();
 
+    console.log(props);
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=905")
             .then(response => response.json())
@@ -15,52 +14,26 @@ const Home = () => {
                 setAllPokemon(allPokemonAPI);
                 setuseAbleData(allPokemonAPI.results);
             });
-    }, [allPokemon, useAbleData]);
-
-
-    function searchFunction(search) {
-        setSearchTerm(search);
-    }
+    }, []);
 
 
     useEffect(() => {
         if (allPokemon === undefined) {
             return;
         }
-        if (searchTerm === "") {
+        if (props.searchTerm === "") {
             setuseAbleData(allPokemon);
         }
         // setSearchTerm(pokemon/${searchTerm});
-        let length = (searchTerm).length;
+        let length = (props.searchTerm).length;
 
-        setuseAbleData(allPokemon.results.filter(el => el.name.slice(0, length).toLowerCase() === (searchTerm).toLowerCase().replaceAll(" ", "-")));
-
-    }, [searchTerm]);
-
-
-
-
-
-
-
-
-    // ================= Bilder Version ==============
-
-    // let version1 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`;
-    // let version2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`;
-    // let version2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png`;
-
-    // ==============================================
-
+        setuseAbleData(allPokemon.results.filter(el => el.name.slice(0, length).toLowerCase() === (props.searchTerm).toLowerCase().replaceAll(" ", "-")));
+        // eslint-disable-next-line
+    }, [props.searchTerm]);
 
     if (allPokemon === undefined) return;
-
-
-
     return (
         <div className='home'>
-
-            <Searchbar search={searchFunction} />
             <div className='homecards'>
                 {useAbleData.map((object, index) => {
                     let i = object.url.slice(-6, -1).replace("/", "").replace("n", "").replace("o", "").replace("m", "");

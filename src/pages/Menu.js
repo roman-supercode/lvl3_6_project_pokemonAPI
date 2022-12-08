@@ -2,6 +2,7 @@ import React from 'react';
 import TypeCard from '../components/typecard/TypeCard';
 import { useState, useEffect } from 'react';
 
+
 const colours = {
     normal: '#A8A77A',
     fire: '#EE8130',
@@ -34,11 +35,11 @@ const Menu = () => {
                 setTypes(typesObj.results.filter(item => item.name !== "unknown" && item.name !== "shadow"));
             });
     }, []);
-    console.log(types);
+    // console.log(types);
 
     return (
         <div className='typeContainer'>
-            <h2>TYPE</h2>
+            <h2 className='typeStyle'>TYPE</h2>
             <div className='typeGrid'>
                 {types.map((type, index) => {
                     for (const [key, value] of Object.entries(colours)) {
@@ -66,8 +67,6 @@ const Menu = () => {
                 })
                 }
             </div>
-            {/* <button className='searchBtn'>SEARCH</button> */}
-
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import TypeCard from "../typecard/TypeCard";
 import "./DetailCard.css";
 
@@ -61,6 +62,7 @@ const colorsDetailCard = {
 };
 
 const DetailCard = (props) => {
+const DetailCard = (props) => {
     const params = useParams();
     const [character, setCharacter] = useState([]);
     const [evolve, setEvolve] = useState([]);
@@ -68,12 +70,15 @@ const DetailCard = (props) => {
     const [expand2, setExpand2] = useState(false);
     const [expand3, setExpand3] = useState(false);
     const [expand4, setExpand4] = useState(false);
+    const [expand4, setExpand4] = useState(false);
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
             .then(res => res.json())
             .then((character) => {
                 setCharacter(character);
+            })
+    }, [params.name])
             })
     }, [params.name])
 
@@ -84,12 +89,16 @@ const DetailCard = (props) => {
                 setEvolve(evolve)
             })
     }, [character.id])
+                setEvolve(evolve)
+            })
+    }, [character.id])
 
     if (character.name === undefined) return;
     if (character.id === undefined) return;
 
     const FormatId = () => {
         if (character.id < 10) {
+            return <p>#00{character.id}</p>
             return <p>#00{character.id}</p>
         } else if (character.id < 100) {
             return <p>#0{character.id}</p>
@@ -98,7 +107,6 @@ const DetailCard = (props) => {
         }
     }
 
-    console.log(character.types)
 
     return (<div className="detailCardDiv">
         <div className="characterBackgroundDiv">
@@ -108,6 +116,7 @@ const DetailCard = (props) => {
             <FormatId />
             <p className="detailCardNameP">{character.name}</p>
         </div>
+        <div  className="detailCardTypeCardDiv">
         <div  className="detailCardTypeCardDiv">
         {character.types.map((singleType, index) => {
             for (const [key, value] of Object.entries(colorsDetailCard)) {
@@ -126,12 +135,14 @@ const DetailCard = (props) => {
         })
         }
         </div>
+        </div>
         <div className="attacksAndMovementsClickDiv" onClick={() => setExpand1(!expand1)}>
             <p className="attacksAndMovementsP">ATTACKS AND MOVEMENTS</p>
             <p className="expandP">{expand1 ? "-" : "+"}</p>
         </div>
         {expand1 && <div className="attacksAndMovementsDiv">
             {character.moves.map((singleMove, index) => {
+                return <p className="moveP" key={index}>{singleMove.move.name}</p>
                 return <p className="moveP" key={index}>{singleMove.move.name}</p>
             })}
         </div>}
@@ -142,9 +153,11 @@ const DetailCard = (props) => {
         {expand2 && <div className="abilitiesDiv">
             {character.abilities.map((singleAbility, index) => {
                 return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>
+                return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>
             })}
         </div>}
         <div className="statsClickDiv" onClick={() => setExpand3(!expand3)}>
+            <p className="statsP">STATS & BASE STAT</p>
             <p className="statsP">STATS & BASE STAT</p>
             <p className="expandP">{expand3 ? "-" : "+"}</p>
         </div>
@@ -172,6 +185,27 @@ const DetailCard = (props) => {
 }
 
 export default DetailCard;
+// ======================================================================
+// EMILY'S NOTES FOR FUTURE SORT BUTTON, PLEASE LEAVE ME HERE :)
+// const handleSortMove = () => {
+//     moves.map((move) => {
+//         moves.push(move);
+//         setSortMove(moves)
+//     })
+
+//     console.log(moves[0].move.name)
+
+//     setAlpha(current => !current);
+//     alpha ? sortMove.sort((a, b) => a.move.name.localeCompare(b.move.name)) : sortMove.sort((a, b) => b.move.name.localeCompare(a.move.name));
+//     setSortMove(sortMove)
+// }
+
+// const [sortMove, setSortMove] = useState();
+// const [alpha, setAlpha] = useState(false);
+// let moves = [];
+
+/* <button>Sort moves</button> */ 
+    // ======================================================================
 // ======================================================================
 // EMILY'S NOTES FOR FUTURE SORT BUTTON, PLEASE LEAVE ME HERE :)
 // const handleSortMove = () => {
