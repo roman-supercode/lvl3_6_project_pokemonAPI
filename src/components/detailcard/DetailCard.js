@@ -62,14 +62,12 @@ const colorsDetailCard = {
 };
 
 const DetailCard = (props) => {
-const DetailCard = (props) => {
     const params = useParams();
     const [character, setCharacter] = useState([]);
     const [evolve, setEvolve] = useState([]);
     const [expand1, setExpand1] = useState(false);
     const [expand2, setExpand2] = useState(false);
     const [expand3, setExpand3] = useState(false);
-    const [expand4, setExpand4] = useState(false);
     const [expand4, setExpand4] = useState(false);
 
     useEffect(() => {
@@ -79,8 +77,7 @@ const DetailCard = (props) => {
                 setCharacter(character);
             })
     }, [params.name])
-            })
-    }, [params.name])
+            
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/evolution-chain/${character.id}`)
@@ -89,9 +86,7 @@ const DetailCard = (props) => {
                 setEvolve(evolve)
             })
     }, [character.id])
-                setEvolve(evolve)
-            })
-    }, [character.id])
+    
 
     if (character.name === undefined) return;
     if (character.id === undefined) return;
