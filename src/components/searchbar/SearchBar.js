@@ -7,11 +7,11 @@ import hamburger from '../../assets/img/hamburger.svg';
 export default function SearchBar() {
     const inputref = useRef();
     return (
-        <div>
-            <img src={headingPic}></img>
-            <div>
+        <div className='searchBarContainer'>
+            <img className='logoImg' src={headingPic}></img>
+            <div className='flexContainer'>
                 <img src={hamburger}></img>
-                <input ref={inputref}></input>
+                <input placeholder='Pokemon name' ref={inputref}></input>
                 <img src={daynight}></img>
             </div>
         </div>

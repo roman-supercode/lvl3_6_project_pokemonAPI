@@ -1,9 +1,12 @@
 import React from 'react';
 import DetailCard from '../components/detailcard/DetailCard';
+import Searchbar from '../components/searchbar/SearchBar';
 
 function Detail() {
     return (
-        <div className='detailPageDiv'><DetailCard /></div>
+        <div className='detailPageDiv'>
+            <Searchbar />
+            <DetailCard /></div>
     );
 }
 
