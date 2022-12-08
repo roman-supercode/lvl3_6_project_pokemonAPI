@@ -7,7 +7,7 @@ const Home = () => {
     const [allPokemon, setAllPokemon] = useState();
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100")
+        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=905")
             .then(response => response.json())
             .then(allPokemonAPI => {
                 setAllPokemon(allPokemonAPI);

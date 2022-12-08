@@ -35,10 +35,7 @@
 }
 
 .homecard {
-    margin: 2rem;
-
-
-
+    margin: 1rem;
     overflow: visible;
     background-image: linear-gradient(to top right, #FFE1C6, #FFCB05);
     border-radius: 20px;
