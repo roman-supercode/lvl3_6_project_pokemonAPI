@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './HomeCard.css';
-
 
 function HomeCard(props) {
     // Die Nullen an die ID packen
@@ -22,7 +20,7 @@ function HomeCard(props) {
     return (
         <section className='homecard'>
             <Link className='homeLink' to={`/detail/${props.name}`}>
-                <img src={`${props.imgURL}`} />
+                <img src={`${props.imgURL}`} alt={props.name} />
                 <article>
                     <FormatId />
                     <p className='pokeName'>{theNameUpperCase}</p>

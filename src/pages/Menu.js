@@ -30,25 +30,12 @@ const Menu = () => {
         fetch(`https://pokeapi.co/api/v2/type`)
             .then(res => res.json())
             .then(typesObj => {
-                // console.log(typesObj); // ✔
-                setTypes(typesObj.results);
-                typesObj.results.map(type => {
-                    // fetchPokemonData(type);
-                });
+                // console.log(typesObj.results); // ✔
+                setTypes(typesObj.results.filter(item => item.name !== "unknown" && item.name !== "shadow"));
             });
     }, []);
+    console.log(types);
 
-    // TESTING ------------
-    // const fetchPokemonData = (type) => {
-    //     let url = type.url;
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then((pokeData) => {
-    //             console.log(pokeData);
-    //         });
-    // };
-
-    //----------------------------------------------------
     return (
         <div className='typeContainer'>
             <h2>TYPE</h2>
@@ -68,6 +55,14 @@ const Menu = () => {
                             );
                         }
                     }
+                    return (
+                        <TypeCard
+                            type={type.name}
+                            key={index}
+                            color={"#fff"}
+                            id={index + 1}
+                        />
+                    );
                 })
                 }
             </div>
