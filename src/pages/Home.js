@@ -1,19 +1,18 @@
 
 import React, { useEffect, useState } from 'react';
 import HomeCard from '../components/homecard/HomeCard';
-import Searchbar from "../components/searchbar/SearchBar"
+import Searchbar from "../components/searchbar/SearchBar";
 
 const Home = () => {
     const [allPokemon, setAllPokemon] = useState();
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100")
+        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150")
             .then(response => response.json())
             .then(allPokemonAPI => {
                 setAllPokemon(allPokemonAPI);
             });
     }, []);
-
 
     if (allPokemon === undefined) return;
 
@@ -26,7 +25,7 @@ const Home = () => {
 
     // ==============================================
 
-
+   
 
     return (
         <div className='home'>
