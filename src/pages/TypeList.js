@@ -4,61 +4,41 @@ import HomeCard from '../components/homecard/HomeCard';
 
 
 const TypeList = () => {
-    const [poke, setPoke] = useState();
+    const [poke, setPoke] = useState([]);
     const [pokeName, setPokeName] = useState([]);
     const params = useParams();
-    // const paramsOne = useParams();
 
-    // console.log(params);
     useEffect(() => {
-        // const pokemonARRAY = [];
         fetch(`https://pokeapi.co/api/v2/type/${params.type}`)
             .then(res => res.json())
             .then(typeObj => {
-                // console.log(typeObj.pokemon);
-                // setPoke(typeObj.pokemon);
-                typeObj.pokemon.map(pokemonDATA => {
-                    fetchPokemonData(pokemonDATA);
-                    // console.log(pokemonDATA.pokemon.url);
-                    //     let url = pokemonDATA.pokemon.url;
-                    //     fetch(`${url}`)
-                    //         .then(res => res.json())
-                    //         .then((pokeData) => {
-                    //             // console.log(pokeData);
-                    //             pokemonARRAY.push({ name: pokeData.name, id: pokeData.id, sprites: pokeData.sprites.other.home.front_default });
-                    //         });
-                });
+                // console.log(typeObj);
+                setPoke(typeObj.pokemon);
             });
-        // setPoke(pokemonARRAY);
     }, [params]);
 
-    const pokemonARRAY = [];
-    const fetchPokemonData = (pokemonDATA) => {
-        let url = pokemonDATA.pokemon.url;
-        fetch(`${url}`)
-            .then(res => res.json())
-            .then((pokeData) => {
-                // console.log(pokeData);
-                pokemonARRAY.push({ name: pokeData.name, id: pokeData.id, sprites: pokeData.sprites.other.home.front_default });
-            });
-    };
-    // console.log(pokemonARRAY);
+    useEffect(() => {
+        Promise.all(poke.map((item) => {
+            return fetch(item.pokemon.url)
+                .then(res => res.json());
+        })).then(response => {
+            setPokeName(response);
+        });
+    }, [poke]);
 
-    // if (poke === undefined) return;
-    // console.log(poke);
+    console.log(pokeName);
+    if (pokeName === undefined) return;
 
     return (
-        <div>
-            {pokemonARRAY.map((item, index) => {
-                // console.log(item);
-                // console.log(item.pokemon.url);
+        <div className='homecards'>
+            {pokeName.map((item, index) => {
                 return (
                     <HomeCard
-                        name={item.pokemon.name}
+                        name={item.name}
                         key={index}
-                        // url={item.pokeName.url}
                         id={item.id}
-                        imgURL={item.sprites}
+                        imgURL={item.sprites.other.home.front_default}
+                        alt={item.name}
                     />
                 );
             })}

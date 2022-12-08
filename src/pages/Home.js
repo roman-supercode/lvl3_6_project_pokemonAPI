@@ -15,7 +15,7 @@ const Home = () => {
                 setAllPokemon(allPokemonAPI);
                 setuseAbleData(allPokemonAPI.results);
             });
-    }, []);
+    }, [allPokemon, useAbleData]);
 
 
     function searchFunction(search) {
