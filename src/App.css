@@ -43,7 +43,14 @@ body {
     overflow: visible;
     background-image: linear-gradient(to top right, #FFE1C6, #FFCB05);
     border-radius: 20px;
+}
 
+.homecard:hover {
+    background-image: linear-gradient(to top right, #FFE1C6, #ddb203);
+}
+
+.pokeID {
+    font-weight: bold;
 }
 
 .homecard img {
