@@ -1,0 +1,35 @@
+.searchBarContainer {
+    margin: 0% auto;
+    padding: 10px 0;
+    width: 50%;
+    min-width: 300px
+}
+
+.logoImg {
+    margin: 2% auto;
+    display: block;
+}
+
+.searchBarContainer input {
+    width: 65%;
+    border-radius: 20px;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 5% auto 0 auto;
+}
+
+.flexContainer img {
+    border-radius: 15px;
+    height: 2rem;
+    transition: transform 0.2s ease-out;
+}
+
+.flexContainer img:hover {
+    background-color: rgba(0, 0, 0, 0.45);
+    transform: scale(1.5);
+    cursor: pointer;
+}
