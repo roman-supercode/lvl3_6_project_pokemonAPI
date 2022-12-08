@@ -8,23 +8,23 @@ import hamburger from '../../assets/img/hamburger.svg';
 export default function SearchBar({ search }) {
     const [darkmode, setDarkMode] = useState(false);
 
-    let dayNight = () => darkmode ? setDarkMode(false) : setDarkMode(true);
+    // let dayNight = () => darkmode ? setDarkMode(false) : setDarkMode(true);
     useEffect(() => {
-        if (darkmode == true) {
-            document.body.style = 'background: #000000';
+        if (darkmode === true) {
+            document.body.className = "darkmode";
         } else {
-            document.body.style = 'background: #CCDADD';
+            document.body.className = "lightmode";
         }
     }, [darkmode]);
 
     return (
         <div className='searchBarContainer'>
-            <Link to={"/"}><img className='logoImg' src={headingPic}></img></Link>
+            <Link to={"/"}><img alt='' className='logoImg' src={headingPic}></img></Link>
             <div className='flexContainer'>
-                <Link to={"/menu"}><img src={hamburger}></img></Link>
+                <Link to={"/menu"}><img alt='' src={hamburger}></img></Link>
                 <input placeholder='Pokemon name' onChange={(e) => search(e.target.value)}></input>
-                <img onClick={dayNight} src={daynight}></img>
+                <img alt='' onClick={() => darkmode ? setDarkMode(false) : setDarkMode(true)} src={daynight}></img>
             </div>
-        </div>
+        </div >
     );
 }

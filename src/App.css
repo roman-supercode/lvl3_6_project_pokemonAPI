@@ -144,3 +144,11 @@ body {
 
 
 }
+
+.darkmode {
+    background-color: #000000;
+}
+
+.lightmode {
+    background-color: #CCDADD;
+}

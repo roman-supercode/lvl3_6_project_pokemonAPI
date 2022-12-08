@@ -98,7 +98,6 @@ const DetailCard = (props) => {
         }
     }
 
-    console.log(character.types)
 
     return (<div className="detailCardDiv">
         <div className="characterBackgroundDiv">
