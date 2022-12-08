@@ -39,10 +39,7 @@ const Menu = () => {
 
     return (
         <div className='typeContainer'>
-            <div>
-                <img src={Heading} alt={"heading"}></img>
-            </div>
-            <h2>TYPE</h2>
+            <h2 className='typeStyle'>TYPE</h2>
             <div className='typeGrid'>
                 {types.map((type, index) => {
                     for (const [key, value] of Object.entries(colours)) {

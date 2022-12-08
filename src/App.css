@@ -19,6 +19,10 @@
     min-height: 100vh;
 }
 
+body {
+    background-color: #CCDADD;
+}
+
 /* =================== Home ======================= */
 .home {
     text-align: center;
@@ -32,6 +36,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 1rem;
+    text-align: center;
 }
 
 .homecard {
@@ -39,7 +44,14 @@
     overflow: visible;
     background-image: linear-gradient(to top right, #FFE1C6, #FFCB05);
     border-radius: 20px;
+}
 
+.homecard:hover {
+    background-image: linear-gradient(to top right, #FFE1C6, #ddb203);
+}
+
+.pokeID {
+    font-weight: bold;
 }
 
 .homecard img {
@@ -61,7 +73,31 @@
 
 }
 
+/* ========== Type ======================= */
+.typeGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    width: 25%;
+    margin: 0 auto;
+}
 
+.typeStyle {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.typecard {
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+    color: black;
+}
+
+.typecard:hover {
+    opacity: 0.8;
+}
+
+/* ===================================== */
 
 
 
@@ -77,12 +113,34 @@
 
     .homecard {
         margin: 1rem;
-
-
-
     }
+
+
+
+
+
+    /* ========== Type ======================= */
+    .typeGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .typeStyle {
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    .typeContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ===================================== */
+
+
 }
-
-
-
-/* =================== Home ======================= */
