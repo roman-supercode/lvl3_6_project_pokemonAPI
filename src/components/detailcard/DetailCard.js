@@ -20,29 +20,29 @@ const DetailCard = () => {
             .then(res => res.json())
             .then((character) => {
                 setCharacter(character);
-            })
-    }, [params.name])
+            });
+    }, [params.name]);
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/evolution-chain/${character.id}`)
             .then(res2 => res2.json())
             .then((evolve) => {
-                setEvolve(evolve)
-            })
-    }, [character.id])
+                setEvolve(evolve);
+            });
+    }, [character.id]);
 
     if (character.name === undefined) return;
     if (character.id === undefined) return;
 
     const FormatId = () => {
         if (character.id < 10) {
-            return <p>#00{character.id}</p>
+            return <p>#00{character.id}</p>;
         } else if (character.id < 100) {
-            return <p>#0{character.id}</p>
+            return <p>#0{character.id}</p>;
         } else {
-            return <p>#{character.id}</p>
+            return <p>#{character.id}</p>;
         }
-    }
+    };
 
     // const handleSortMove = () => {
     //     moves.map((move) => {
@@ -56,7 +56,7 @@ const DetailCard = () => {
     //     alpha ? sortMove.sort((a, b) => a.move.name.localeCompare(b.move.name)) : sortMove.sort((a, b) => b.move.name.localeCompare(a.move.name));
     //     setSortMove(sortMove)
     // }
-    console.log(evolve)
+    console.log(evolve);
 
     return (<div className="detailCardDiv">
         <div className="characterBackgroundDiv">
@@ -70,7 +70,7 @@ const DetailCard = () => {
             return (<div>
                 <p key={index}>{singleType.type.name}</p>
                 <TypeCard />
-            </div>)
+            </div>);
 
         })
         }
@@ -82,7 +82,7 @@ const DetailCard = () => {
         </div>
         {expand1 && <div className="attacksAndMovementsDiv">
             {character.moves.map((singleMove, index) => {
-                return <p className="moveP" key={index}>{singleMove.move.name}</p>
+                return <p className="moveP" key={index}>{singleMove.move.name}</p>;
             })}
         </div>}
         <div className="abilitiesClickDiv" onClick={() => setExpand2(!expand2)}>
@@ -91,7 +91,7 @@ const DetailCard = () => {
         </div>
         {expand2 && <div className="abilitiesDiv">
             {character.abilities.map((singleAbility, index) => {
-                return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>
+                return <p className="abilityP" key={index}>{singleAbility.ability.name}</p>;
             })}
         </div>}
         <div className="statsClickDiv" onClick={() => setExpand3(!expand3)}>
@@ -101,9 +101,9 @@ const DetailCard = () => {
         {expand3 && <div className="statsDiv">
             <p className="statP">evolution path 1: {evolve.chain.species.name}</p>
         </div>}
-        <Link to={"/"}>Temporary Link to Home</Link>
+
     </div>);
-}
+};
 
 // const [expanded, setExpanded] = useState(false);
 // return (
