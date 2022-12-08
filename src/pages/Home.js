@@ -9,13 +9,14 @@ const Home = () => {
     const [useAbleData, setuseAbleData] = useState();
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100")
+        fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150")
             .then(response => response.json())
             .then(allPokemonAPI => {
                 setAllPokemon(allPokemonAPI);
                 setuseAbleData(allPokemonAPI.results);
             });
     }, []);
+
 
     function searchFunction(search) {
         setSearchTerm(search);
@@ -42,6 +43,7 @@ const Home = () => {
 
 
 
+
     // ================= Bilder Version ==============
 
     // let version1 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index + 1}.svg`;
@@ -50,7 +52,9 @@ const Home = () => {
 
     // ==============================================
 
+
     if (allPokemon === undefined) return;
+
 
 
     return (

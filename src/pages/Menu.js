@@ -32,11 +32,23 @@ const Menu = () => {
             .then(typesObj => {
                 // console.log(typesObj); // ✔
                 setTypes(typesObj.results);
+                typesObj.results.map(type => {
+                    // fetchPokemonData(type);
+                });
             });
     }, []);
 
-    // console.log(types);
+    // TESTING ------------
+    // const fetchPokemonData = (type) => {
+    //     let url = type.url;
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then((pokeData) => {
+    //             console.log(pokeData);
+    //         });
+    // };
 
+    //----------------------------------------------------
     return (
         <div className='typeContainer'>
             <h2>TYPE</h2>
@@ -60,6 +72,7 @@ const Menu = () => {
                 }
             </div>
             {/* <button className='searchBtn'>SEARCH</button> */}
+
         </div>
     );
 };
