@@ -3,7 +3,7 @@ import headingPic from '../../assets/img/heading.svg';
 import daynight from '../../assets/img/daynight.svg';
 import hamburger from '../../assets/img/hamburger.svg';
 
-export default function SearchBar({ search }) 
+export default function SearchBar({ search }) {
     return (
         <div className='searchBarContainer'>
             <img className='logoImg' src={headingPic} alt={"logo"}></img>
