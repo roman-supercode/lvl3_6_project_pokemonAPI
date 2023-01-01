@@ -8,7 +8,7 @@ An application to display Pokemon statistics using the API published by [PokeAPI
 - View information such as: HP, Damage, Defense and Speed
 - Visualize what type that pokemon is and what its moves are
 
-Made with ❤️ by Emily, Franz, Mo, and Roman
+Made with ❤️ by Emily, Franz, Mo and Roman
 
 ```
 .
